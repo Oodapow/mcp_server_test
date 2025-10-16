@@ -8,25 +8,7 @@
     "url": "https://github.com/Oodapow/mcp_server_test",
     "source": "github"
   },
-  "packages": [
-    {
-      "registryType": "pypi",
-      "identifier": "mcp-math-server",
-      "version": "0.1.0",
-      "transport": {
-        "type": "stdio"
-      }
-    }
-  ],
-  "_meta": {
-    "io.modelcontextprotocol.registry/publisher-provided": {
-      "tool": "mcp-publisher",
-      "version": "1.0.0",
-      "build_info": {
-        "timestamp": "2025-10-15T00:00:00Z"
-      }
-    }
-  }
+  "packages": []
 }
 
 

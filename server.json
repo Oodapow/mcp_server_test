@@ -19,12 +19,6 @@
       }
     }
   ],
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "http://localhost:5000/mcp"
-    }
-  ],
   "_meta": {
     "io.modelcontextprotocol.registry/publisher-provided": {
       "tool": "mcp-publisher",

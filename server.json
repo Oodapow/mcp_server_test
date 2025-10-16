@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
-  "name": "io.github.oodapow/mcp-math-server",
+  "name": "io.modelcontextprotocol.anonymous/mcp-math-server",
   "title": "MCP Math Server",
   "description": "MCP server for mathematical operations: arithmetic, advanced functions, and number theory",
   "version": "0.1.0",

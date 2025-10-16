@@ -1,6 +1,8 @@
 # MCP Math Server
 
-A toy MCP (Model Context Protocol) server written in Python that provides mathematical functions. Built with **Pydantic** for type-safe, validated tool schemas.
+A toy MCP (Model Context Protocol) server written in Python that provides mathematical functions. Built with **FastMCP** for modern, type-safe tool development.
+
+<!-- mcp-name: io.github.oodapow/mcp-math-server -->
 
 ## Features
 

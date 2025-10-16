@@ -1,0 +1,39 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.oodapow/mcp-math-server",
+  "title": "MCP Math Server",
+  "description": "A comprehensive MCP server providing mathematical operations including basic arithmetic, advanced functions, and number theory tools",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/Oodapow/mcp_server_test",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/Oodapow/mcp_server_test",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "mcp-math-server",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "http://localhost:5000/mcp"
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "tool": "mcp-publisher",
+      "version": "1.0.0",
+      "build_info": {
+        "timestamp": "2025-10-15T00:00:00Z"
+      }
+    }
+  }
+}
+
+

@@ -8,14 +8,13 @@
     "url": "https://github.com/Oodapow/mcp_server_test",
     "source": "github"
   },
-  "websiteUrl": "https://github.com/Oodapow/mcp_server_test",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "mcp-math-server",
       "version": "0.1.0",
       "transport": {
-        "type": "stdio"
+        "type": "streamable-http"
       }
     }
   ],

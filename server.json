@@ -3,7 +3,7 @@
   "name": "io.modelcontextprotocol.anonymous/mcp-math-server",
   "title": "MCP Math Server",
   "description": "MCP server for mathematical operations: arithmetic, advanced functions, and number theory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "url": "https://github.com/Oodapow/mcp_server_test",
     "source": "github"

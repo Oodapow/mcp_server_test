@@ -2,7 +2,7 @@
 
 A toy MCP (Model Context Protocol) server written in Python that provides mathematical functions. Built with **FastMCP** for modern, type-safe tool development.
 
-<!-- mcp-name: io.modelcontextprotocol.anonymous/mcp-math-server -->
+mcp-name: io.modelcontextprotocol.anonymous/mcp-math-server
 
 ## Features
 

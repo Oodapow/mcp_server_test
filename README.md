@@ -2,83 +2,41 @@
 
 A toy MCP (Model Context Protocol) server written in Python that provides mathematical functions. Built with **FastMCP** for modern, type-safe tool development.
 
-mcp-name: io.modelcontextprotocol.anonymous/mcp-math-server
-
-## Features
-
-This server provides the following math operations as MCP tools:
-
-- **add** - Add two numbers
-- **subtract** - Subtract two numbers
-- **multiply** - Multiply two numbers
-- **divide** - Divide two numbers
-- **power** - Raise a number to a power
-- **sqrt** - Calculate square root
-- **factorial** - Calculate factorial of a non-negative integer
-- **gcd** - Find greatest common divisor
-- **lcm** - Find least common multiple
-- **is_prime** - Check if a number is prime
-
-## Installation
-
-### Using pip
-
-```bash
-pip install -e .
-```
-
-### Development Installation
-
-```bash
-pip install -e ".[dev]"
-```
-
-## Usage
-
-### Running the Server
-
-```bash
-mcp-math-server
-```
-
-Or run directly with Python:
-
-```bash
-python -m mcp_math_server.server
-```
-
-### Using with MCP Clients
-
-Configure your MCP client to use this server. Example configuration:
-
-```json
-{
-  "mcpServers": {
-    "math": {
-      "command": "mcp-math-server"
-    }
-  }
-}
-```
-
-## Example
-
-Once connected, you can use the math tools:
-
-- Add numbers: `add(a=5, b=3)` → Result: 8
-- Check prime: `is_prime(n=17)` → 17 is prime
-- Calculate factorial: `factorial(n=5)` → Result: 120
-
-## Development
-
-This is a simple toy server for testing and demonstration purposes.
+**All tool descriptions and input schemas are automatically generated from Python docstrings and type annotations** - no manual schema writing required!
 
 ### Key Features
 
-- **Pydantic Models**: Each tool uses Pydantic models for input validation and automatic JSON schema generation
+- **Automatic Schema Generation**: Tool input schemas are automatically generated from Python `Annotated` type hints - define your parameters once with Python types, get JSON Schema for free
+- **Documentation from Docstrings**: Tool descriptions come from function docstrings, and parameter descriptions are extracted from `Annotated` type hint strings
 - **Type Safety**: Full type hints and validation for all operations
-- **Clean Architecture**: Separation of concerns with dedicated input models
-- **Automatic Validation**: Pydantic handles parameter validation (e.g., `n >= 0` for factorial, `x >= 0` for sqrt)
+- **Clean Architecture**: Simple, straightforward function definitions with no boilerplate
+- **Automatic Validation**: FastMCP handles type checking and parameter validation automatically
+
+### How It Works
+
+FastMCP automatically converts your Python code into MCP tool definitions:
+
+```python
+from typing import Annotated
+
+@mcp.tool()
+def add(
+    a: Annotated[float, "First number"],
+    b: Annotated[float, "Second number"],
+) -> str:
+    """Add two numbers together.
+    
+    Returns the sum of a and b.
+    """
+    result = a + b
+    return f"Result: {result}"
+```
+
+This becomes an MCP tool with:
+- **Tool name**: `add`
+- **Tool description**: "Add two numbers together. Returns the sum of a and b." (from docstring)
+- **Input schema**: JSON Schema with `a` and `b` as number fields with descriptions (from `Annotated` type hints)
+- **Validation**: Automatic type checking and validation
 
 ### Project Structure
 
@@ -90,7 +48,3 @@ mcp_server_test/
 ├── pyproject.toml
 └── README.md
 ```
-
-## License
-
-MIT

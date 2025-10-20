@@ -7,6 +7,32 @@ import asyncio
 from fastmcp.client import Client, StreamableHttpTransport
 
 
+def format_tool_parameters(schema: dict) -> str:
+    """Format tool input schema into a readable parameter list."""
+    if not schema or "properties" not in schema:
+        return ""
+    
+    properties = schema.get("properties", {})
+    required = schema.get("required", [])
+    
+    params = []
+    for param_name, param_info in properties.items():
+        param_type = param_info.get("type", "any")
+        param_desc = param_info.get("description", "")
+        is_required = param_name in required
+        
+        # Format: param_name: type [required] - description
+        param_str = f"{param_name}: {param_type}"
+        if is_required:
+            param_str += " [required]"
+        if param_desc:
+            param_str += f" - {param_desc}"
+        
+        params.append(param_str)
+    
+    return ", ".join(params) if params else ""
+
+
 async def test_math_server():
     """Test the MCP Math Server using FastMCP client via HTTP."""
     
@@ -32,7 +58,9 @@ async def test_math_server():
         tools = await client.list_tools()
         print(f"✓ Found {len(tools)} tools:")
         for tool in tools:
-            print(f"  - {tool.name}: {tool.description}")
+            params = format_tool_parameters(tool.inputSchema)
+            print(f"  - {tool.name}({params})")
+            print(f"    {tool.description}")
         print()
         
         # Test 1: Add two numbers
